@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<p>日報一覧</p>
 {% for report in reports %}
     <a href="{% url 'report:report_detail' report.id%}">{{ report.user}}
         {{ report.insert_time }}

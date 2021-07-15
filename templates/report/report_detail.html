@@ -12,6 +12,7 @@
     {{ report.text }}
     {{ report.bikou }}
     <a href="{% url 'report:report_update' report.id %}">内容を更新する</a>
+    <a href="{% url 'report:report_delete' report.id %}">内容を削除する</a>
 {% endfor %}
 
 
