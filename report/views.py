@@ -37,7 +37,7 @@ class ReportUpdateView(UpdateView):
     template_name = 'report/report_update.html'
     model = Report
     form_class = ReportForm
-    success_url = reverse_lazy('report:list')
+    success_url = reverse_lazy('report:report_list')
     
     def form_valid(self, form):
         form = form.save(commit=False)
