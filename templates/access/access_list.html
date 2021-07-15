@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>利用者一覧です</p>
+{% for access in accesses %}
+    <a href="{% url 'access:access_detail' access.id%}">
+        {{ access.user_name }}
+        {{ access.access_time }}
+    {{ access.kaeru_time }}</a>
+{% endfor %}
+</body>
+</html>
