@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>日報一覧</p>
+{% for report in reports %}
+    <a href="{% url 'report:report_detail' report.id%}">{{ report.user}}
+        {{ report.insert_time }}
+    {{ report.area }}</a>
+{% endfor %}
+</body>
+</html>
