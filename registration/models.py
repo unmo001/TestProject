@@ -26,6 +26,7 @@ class CustomUser(AbstractUser):
 
 class Report(models.Model):
     user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
+    title = models.CharField(verbose_name='タイトル',max_length=30)
     insert_time = models.DateTimeField(verbose_name='日付',)
     area = models.CharField(verbose_name='作業場所', max_length=20)
     text = models.TextField(verbose_name='作業内容')

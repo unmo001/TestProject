@@ -33,7 +33,7 @@ class ReportDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(ReportDeleteView, self).get_context_data()
-        context['reports'] = Report.objects.all()
+        context['reports'] = Report.objects.filter(user=self.kwargs['pk'])
         return context
 
 
