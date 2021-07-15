@@ -11,7 +11,7 @@ class Company(models.Model):
     honbu_flag = models.BooleanField(verbose_name='本部', default=False)
 
     class Meta:
-        verbose_name_plural = "本部、フランチャイズ"
+        verbose_name_plural = "運営本部"
 
     def __str__(self):
         return self.company_name
