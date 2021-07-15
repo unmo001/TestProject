@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -17,18 +18,18 @@ class Company(models.Model):
 
 
 class CustomUser(AbstractUser):
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,blank=True,null=True)
 
     class Meta:
         verbose_name_plural = "ユーザー"
 
 
-class Nippo(models.Model):
-    insert_time = models.DateTimeField(verbose_name='日付', auto_now_add=True)
+class Report(models.Model):
+    user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
+    insert_time = models.DateTimeField(verbose_name='日付',)
     area = models.CharField(verbose_name='作業場所', max_length=20)
     text = models.TextField(verbose_name='作業内容')
     bikou = models.TextField(verbose_name='備考')
-    company = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = "日報"
