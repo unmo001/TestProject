@@ -12,7 +12,7 @@ class ReportListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ReportListView, self).get_context_data(**kwargs)
-        context['reports'] = Report.objects.all().order_by('insert_time')
+        context['reports'] = Report.objects.filter(user=self.request.user).order_by('insert_time')
         return context
 
 
