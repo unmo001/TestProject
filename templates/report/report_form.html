@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>日報作成</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="ui button" name="next" value="confirm" >作成</button>
+    <input type="submit" value="下書きとして保存" name="draft">
+</form>
+</body>

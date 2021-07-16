@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下書き詳細</title>
+</head>
+<body>
+{% for draft in drafts %}
+    {{ draft.user }}
+    {{ draft.title }}
+    {{ draft.insert_time }}
+    {{ drafts.area }}
+    {{ draft.text }}
+    {{ draft.remarks }}
+    <a href="{% url 'report:draft_draft_update' report.id %}">内容を更新する</a>
+{% endfor %}

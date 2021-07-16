@@ -21,6 +21,10 @@ class Company(models.Model):
 
 class CustomUser(AbstractUser):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, blank=True, null=True)
+    headquarters_owner = models.BooleanField(verbose_name='本部管理者',default=False)
+    franchise_owner = models.BooleanField(verbose_name='フランチャイズ管理者',default=False)
+    child_welfare_facility_owner = models.BooleanField(verbose_name='児童福祉施設管理者',default=False)
+
 
     class Meta:
         verbose_name_plural = "ユーザー"
@@ -28,17 +32,19 @@ class CustomUser(AbstractUser):
 
 class Report(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    title = models.CharField(verbose_name='タイトル', max_length=30)
-    insert_time = models.DateTimeField(verbose_name='日付', )
-    area = models.CharField(verbose_name='作業場所', max_length=20)
-    text = models.TextField(verbose_name='作業内容')
-    remarks = models.TextField(verbose_name='備考')
+    title = models.CharField(verbose_name='作業タイトル', max_length=30, null=True, blank=True)
+    insert_time = models.DateTimeField(verbose_name='日付', null=True, blank=True,auto_now_add=True)
+    area = models.CharField(verbose_name='作業場所', max_length=20, null=True, blank=True)
+    text = models.TextField(verbose_name='作業内容', null=True, blank=True)
+    remarks = models.TextField(verbose_name='備考', null=True, blank=True)
+    is_public = models.BooleanField(verbose_name='公開設定',default=False)
+
+    def __str__(self):
+        return self.text
 
     class Meta:
         verbose_name_plural = "日報"
 
-    def __str__(self):
-        return self.text
 
 
 class Access(models.Model):

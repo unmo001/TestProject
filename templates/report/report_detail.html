@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>日報詳細</title>
 </head>
 <body>
-{% for report in reports %}
-    {{ report.user }}
-    <p>タイトル</p>
-    {{ report.insert_time }}
-    {{ reports.are }}
-    {{ report.text }}
-    {{ report.remarks }}
-    <a href="{% url 'report:report_update' report.id %}">内容を更新する</a>
-    <a href="{% url 'report:report_delete' report.id %}">内容を削除する</a>
-{% endfor %}
-
-
-
+<div>
+    <p>
+        {{ report.user }}
+        {{ report.title }}
+        {{ report.insert_time }}
+        {{ reports.area }}
+        {{ report.text }}
+        {{ report.remarks }}
+        <a href="{% url 'report:report_update' report.id %}">内容を更新する</a>
+        <a href="{% url 'report:report_delete' report.id %}">内容を削除する</a>
+    </p>
+</div>
 
 </body>
 </html>
