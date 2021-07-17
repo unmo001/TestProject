@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 
-from registration.models import Report
+from registration.models import Report, CustomUser
 from report.forms import ReportForm
 
 
@@ -102,3 +102,7 @@ class ReportCreateView(CreateView):
             return redirect(reverse_lazy('report:report_list'))
         else:
             return redirect(reverse_lazy('report:report_list'))
+
+
+
+

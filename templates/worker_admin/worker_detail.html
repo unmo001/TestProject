@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>従業員詳細</title>
+</head>
+<body>
+<div>
+    <p>
+        {{ worker.username }}
+        <a href="{% url 'worker:worker_update' worker.id %}">内容を更新する</a>
+        <a href="{% url 'worker:worker_delete' worker.id %}">内容を削除する</a>
+    </p>
+</div>
+
+</body>
+</html>
